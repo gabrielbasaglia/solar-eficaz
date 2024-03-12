@@ -15,7 +15,14 @@ async function getPosts() {
 export const CategoriaLista = async () => {
   const data = await getPosts();
 
-  const colors = ["cyan", "green", "purple", "orange", "red", "amber"];
+  const colors = [
+    "bg-cyan-200",
+    "bg-green-200",
+    "bg-purple-200",
+    "bg-orange-200",
+    "bg-red-200",
+    "bg-amber-200",
+  ];
 
   return (
     <div className="mt-10 w-full">
@@ -25,9 +32,9 @@ export const CategoriaLista = async () => {
         {data?.map((item, idx) => (
           <div
             key={idx}
-            className={`flex justify-between gap-5 bg-${
+            className={`flex justify-between gap-5 ${
               colors[idx % colors.length]
-            }-200 w-40 h-14 flex-grow rounded-md hover:scale-110 duration-300 ease-in-out`}
+            } w-40 h-14 flex-grow rounded-md hover:scale-110 duration-300 ease-in-out`}
           >
             <div className="w-1/2 xs:w-full flex items-center justify-start xs:justify-center mx-auto">
               <Link

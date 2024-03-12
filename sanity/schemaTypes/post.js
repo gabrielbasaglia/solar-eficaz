@@ -57,6 +57,12 @@ export const post = {
       initialValue: () => new Date().toISOString(),
     },
     {
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      validation: (rule) => rule.max(300).error("Max 300 characters"),
+    },
+    {
       name: "body",
       title: "Body",
       type: "array",
