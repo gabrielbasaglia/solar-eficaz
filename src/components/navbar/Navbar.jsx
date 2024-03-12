@@ -9,12 +9,12 @@ export const Navbar = () => {
         <Image src="/facebook.png" alt="facebook" width={24} height={24} />
         <Image src="/instagram.png" alt="instagram" width={24} height={24} />
       </div>
-      <div className="md:flex-1 md:text-center text-3xl font-bold font-in ">
+      <div className="md:flex-1 md:text-center text-3xl font-bold font-pop ">
         Solar Eficaz
       </div>
       <div className="flex md:gap-5 md:flex-1 items-center ">
         <ThemeToggle />
-        <div className=" md:gap-5 md:flex hidden">
+        <div className=" md:gap-5 md:flex hidden font-pop font-light">
           <Link href="/">Início</Link>
           <Link href="/">Contato</Link>
           <Link href="/">Sobre</Link>
