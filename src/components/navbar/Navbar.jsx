@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "../themeToggle/ThemeToggle";
+import { MenuNavBar } from "../menuNavbar/MenuNavbar";
 
 export const Navbar = () => {
   return (
@@ -19,6 +20,7 @@ export const Navbar = () => {
           <Link href="/">Contato</Link>
           <Link href="/">Sobre</Link>
         </div>
+        <MenuNavBar />
       </div>
     </div>
   );

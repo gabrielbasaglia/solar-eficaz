@@ -1,46 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import { client, urlFor } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/client";
 import { Button } from "../ui/button";
 
-async function getPosts() {
-  const query = `*[_type == 'post'] {
-    title,
-    slug,
-    body,
-    publishedAt,
-    excerpt,
-    categories[] -> {
-      _id,
-      title,
-          },
-    mainImage,
-    _id,
-  
-  }`;
-
-  const post = await client.fetch(query);
-  return post;
-}
-
-export const Card = async () => {
-  const post = await getPosts();
-
+export const Card = async ({ key, post }) => {
   return (
-    <section>
-      {post?.map((post, _id) => (
+    console.log(post),
+    (
+      <section>
         <div
-          key={_id}
           className="lg:grid lg:grid-cols-2 mb-12 items-center gap-10 overflow-hidden"
+          key={key}
         >
-          <div className="h-80 relative hidden lg:block">
-            <Image
-              src={urlFor(post.mainImage).url()}
-              alt=""
-              fill
-              objectFit="cover"
-            />
-          </div>
+          {post.mainImage && (
+            <div className="h-80 relative hidden lg:block">
+              <Image
+                src={urlFor(post.mainImage).url()}
+                alt=""
+                fill
+                objectFit="cover"
+              />
+            </div>
+          )}
           <div className="flex flex-col justify-between h-full ">
             <div className="flex items-center gap-3">
               <span className="text-slate-400  font-medium ">
@@ -64,7 +45,7 @@ export const Card = async () => {
             </Link>
           </div>
         </div>
-      ))}
-    </section>
+      </section>
+    )
   );
 };

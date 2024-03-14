@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="2xl:max-w-screen-2xl  xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md max-w-screen-sm mx-auto lg:px-20 md:px-10 px-5 font-ra">
+          <div className="2xl:max-w-screen-2xl xl:max-w-screen-xl  lg:max-w-screen-lg md:max-w-screen-md max-w-screen-sm mx-auto lg:px-20 px-10 font-ra">
             <Navbar />
             {children}
           </div>

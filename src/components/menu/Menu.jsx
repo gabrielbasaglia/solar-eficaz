@@ -3,7 +3,7 @@ import { MenuCategories } from "../menuCategories/MenuCategories";
 
 export const Menu = () => {
   return (
-    <div className="mt-20 hidden md:block max-w-72">
+    <div className="mt-20 hidden md:block max-w-80">
       <h2 className="text-sm font-normal text-slate-400">
         {"O que há de novo"}
       </h2>
