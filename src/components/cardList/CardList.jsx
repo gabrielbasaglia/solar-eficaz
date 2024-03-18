@@ -2,7 +2,7 @@ import { Card } from "../card/Card";
 import { client } from "@/sanity/lib/client";
 import { Pagination } from "../pagination/Pagination";
 
-const POSTS_PER_PAGE = 4;
+const POSTS_PER_PAGE = 5;
 
 let lastPublishedAt = "";
 let lastId = "";

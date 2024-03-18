@@ -3,6 +3,7 @@ import "./globals.css";
 import { cn } from "@/src/lib/utils";
 import { ThemeProvider } from "@/src/provider/ThemeProvider";
 import { Navbar } from "@/src/components/navbar/Navbar";
+import { Footer } from "../components/footer/Footer";
 
 const poppins = Poppins({
   weight: ["300", "500", "700"],
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
           <div className="2xl:max-w-screen-2xl xl:max-w-screen-xl  lg:max-w-screen-lg md:max-w-screen-md max-w-screen-sm mx-auto lg:px-20 px-10 font-ra">
             <Navbar />
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
