@@ -38,7 +38,7 @@ export const Card = async ({ key, post }) => {
               </p>
             </div>
             <Link
-              href="/"
+              href={`/blog/${post?.slug.current}`}
               className="text-amber-700 hover:opacity-95 hover:scale-95 duration-300 ease-in-out border-b-2 w-fit"
             >
               <Button>Leia mais</Button>
