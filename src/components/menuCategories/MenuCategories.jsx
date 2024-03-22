@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const MenuCategories = () => {
   return (
-    <div className="flex flex-wrap gap-2 mt-2 rounded-full text-black">
+    <div className="flex flex-wrap gap-2 mt-2 rounded-full text-black ">
       <Link
         href="/blog?cat=noticias"
         className="bg-cyan-200 rounded-full w-fit text-black px-4"
