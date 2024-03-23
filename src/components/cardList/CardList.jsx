@@ -2,40 +2,27 @@ import { Card } from "../card/Card";
 import { client } from "@/sanity/lib/client";
 import { Pagination } from "../pagination/Pagination";
 
-const POSTS_PER_PAGE = 5;
-
-let lastPublishedAt = "";
-let lastId = "";
+const POSTS_PER_PAGE = 4;
 
 async function buildPostQuery(page) {
-  const skip = (page - 1) * POSTS_PER_PAGE;
-  return `*[_type == "post" && (
-    publishedAt > $lastPublishedAt
-    || (publishedAt == $lastPublishedAt && _id > $lastId)
-  )] | order(publishedAt desc) [${skip}...${skip + POSTS_PER_PAGE}] {
-    title,
-    slug,
-    publishedAt,
-    excerpt,
-    categories[] -> {
-      _id,
-      title,
-    },
-    mainImage,
+  return `*[_type == 'post'] [0...${POSTS_PER_PAGE}]{
+  title,
+  slug,
+  body,
+  publishedAt,
+  excerpt,
+  categories[] -> {
     _id,
-  }`;
+    title,
+  },
+  mainImage,
+  _id,
+} | order(publishedAt desc)`;
 }
 
 async function getPosts(page) {
   const query = await buildPostQuery(page);
-  const posts = await client.fetch(query, { lastPublishedAt, lastId });
-
-  if (posts.length > 0) {
-    lastPublishedAt = posts[posts.length - 1].publishedAt;
-    lastId = posts[posts.length - 1]._id;
-  } else {
-    lastId = null;
-  }
+  const posts = await client.fetch(query);
 
   return posts;
 }
